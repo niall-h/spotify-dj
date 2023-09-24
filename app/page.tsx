@@ -12,18 +12,13 @@ import StyledRadio from "./components/StyledRadio";
 import { useState } from "react";
 import backgroundImage from "../public/background.png";
 import Image from "next/image";
-import InfoCard from "./components/InfoCard";
-import { INFO_TEXT } from "@/lib/info-text";
+import Introduction from "./components/home/Introduction";
+import HowItWorks from "./components/home/HowItWorks";
+import GetStarted from "./components/home/GetStarted";
 
 export default function Home() {
   const [checked, setChecked] = useState([true, false, false]);
   const [hover, setHover] = useState([false, false, false]);
-
-  // const handleClick = (index: number) => {
-  //   const tempArr = checked.map((_, n) => (n === index ? true : false));
-  //   setChecked(tempArr);
-  //   setCurrent(index);
-  // };
 
   return (
     <>
@@ -48,7 +43,7 @@ export default function Home() {
               alignItems="center"
               justifyContent="center"
             >
-              <RadioGroup defaultValue="About">
+              <RadioGroup defaultValue="Introduction">
                 <FormControlLabel
                   value="Introduction"
                   control={
@@ -65,7 +60,7 @@ export default function Home() {
                       Introduction
                     </Typography>
                   }
-                  sx={{ my: 2 }}
+                  sx={{ my: 3 }}
                 />
                 <FormControlLabel
                   value="How It Works"
@@ -83,7 +78,7 @@ export default function Home() {
                       How It Works
                     </Typography>
                   }
-                  sx={{ my: 2 }}
+                  sx={{ my: 3 }}
                 />
                 <FormControlLabel
                   value="Get Started"
@@ -101,7 +96,7 @@ export default function Home() {
                       Get Started
                     </Typography>
                   }
-                  sx={{ my: 2 }}
+                  sx={{ my: 3 }}
                 />
               </RadioGroup>
             </Box>
@@ -113,13 +108,9 @@ export default function Home() {
               alignItems="center"
               justifyContent="left"
             >
-              {Object.keys(INFO_TEXT).map((title, index) => (
-                <InfoCard
-                  title={title}
-                  description={INFO_TEXT[title]}
-                  active={checked[index]}
-                />
-              ))}
+              <Introduction active={checked[0]} />
+              <HowItWorks active={checked[1]} />
+              <GetStarted active={checked[2]} />
             </Box>
           </Grid>
         </Grid>

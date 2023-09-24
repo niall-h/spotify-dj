@@ -1,5 +1,6 @@
 "use client";
 
+import { theme } from "@/lib/theme";
 import { ThemeProvider, createTheme } from "@mui/material";
 import { SessionProvider } from "next-auth/react";
 import { ReactNode } from "react";
@@ -7,17 +8,6 @@ import { ReactNode } from "react";
 interface Props {
   children: ReactNode;
 }
-
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: "#1DB954",
-    },
-    secondary: {
-      main: "#FFFFFF",
-    },
-  },
-});
 
 export default function Providers(props: Props) {
   return (

@@ -1,21 +1,18 @@
 import { Card, CardContent, CardHeader, Fade, Typography } from "@mui/material";
 
-interface InfoBoxProps {
-  title: string;
-  description: string;
-  active: boolean;
-}
-
-export default function InfoBox({ title, description, active }: InfoBoxProps) {
+export default function HowItWorks({ active }: { active: boolean }) {
   return (
     <Fade in={active} timeout={500}>
       <Card
         raised
         sx={{ width: 800, mr: 4, display: active ? "block" : "none" }}
       >
-        <CardHeader title={title} />
+        <CardHeader
+          title="How It Works"
+          titleTypographyProps={{ variant: "h4" }}
+        />
         <CardContent>
-          <Typography variant="h6">{description}</Typography>
+          <Typography variant="h6">Loren ipsum</Typography>
         </CardContent>
       </Card>
     </Fade>
